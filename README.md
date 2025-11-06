@@ -23,54 +23,29 @@ cd build/Assignment_2:3D_kinetic_sculpture_animation
 
 ---
 
-### 📁 Final Project
-An advanced 3D graphics project with custom rendering capabilities.
+### 📁 Assignment 3: Simple 3D Game
+A simple 3D game with player control, camera following, and collision detection.
 
 **Features:**
-- 🎨 Custom shader pipeline
-- 🎮 Interactive camera and controls
-- 💡 Dynamic lighting system
-- 🔲 Wireframe rendering mode
+- 🎮 Player movement controls (WASD)
+- 📷 Camera that follows the player
+- 💥 AABB collision detection
+- 🎨 3D model loading from OBJ files
+
+**Demo:**
+![Game Screenshot](Assignment_3/resources/Car.png)
+
+<video src="Assignment_3/resources/Car.mp4" controls width="100%">
+  [Watch Demo Video](Assignment_3/resources/Car.mp4)
+</video>
 
 **Quick Start:**
 ```bash
 ./build.sh
-cd build/Final_Project
-./Final_Project
+cd build/Assignment_3
+./Assignment_3
 ```
 
-📖 [Detailed Documentation](Final_Project/README.md)
+📖 [Detailed Documentation](Assignment_3/README.md)
 
 ---
-
-## Common Controls
-- **WASD**: Move camera
-- **Mouse**: Look around
-- **SPACE**: Toggle rotation
-- **TAB**: Wireframe mode
-- **ESC**: Exit
-
-## Tech Stack
-- **C++17** + **OpenGL 3.3 Core Profile**
-- **GLFW** - Window management
-- **GLM** - Mathematics library
-- **stb_image** - Image loading
-- **CMake** - Build system
-
-## Build Instructions
-
-### Prerequisites
-- C++17 compatible compiler
-- CMake 3.16 or higher
-- OpenGL 3.3+ support
-
-### Building All Projects
-```bash
-./build.sh
-```
-
-This will build all projects in the workspace.
-
----
-
-*3D Game Development | Computer Graphics Projects*
