@@ -45,3 +45,12 @@ This is a simple 3D game implementation with the following features:
 - Prevents player from moving through obstacles
 - Detects collisions between player and scene/items/enemies
 
+## Credits
+
+### 3D Models
+- **Hummer EV - Low Poly** by [Ajay Gawde](https://sketchfab.com/ajaygawde)
+  - License: CC Attribution
+  - Model: GMC Hummer EV - Low poly model
+  - Source: Sketchfab
+  - Triangles: 31.4k | Vertices: 17.7k
+
