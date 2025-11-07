@@ -4,7 +4,7 @@ A collection of 3D graphics projects and assignments built with OpenGL and C++.
 
 ## Quick Links
 
-- 📖 [Assignment 2: Earth 3D Model](Assignment_2:3D_kinetic_sculpture_animation/README.md)
+- 📖 [Assignment 2: Earth 3D Model](Assignment_2/README.md)
 - 📖 [Assignment 3: Simple 3D Game](Assignment_3/README.md)
 - 📖 [Final Project](Final_Project/README.md)
 
@@ -21,11 +21,11 @@ A 3D Earth model viewer with photorealistic textures and interactive controls.
 **Quick Start:**
 ```bash
 ./build.sh
-cd build/Assignment_2:3D_kinetic_sculpture_animation
+cd build/Assignment_2
 ./Assignment_2_3D_kinetic_sculpture_animation
 ```
 
-📖 [Detailed Documentation](Assignment_2:3D_kinetic_sculpture_animation/README.md)
+📖 [Detailed Documentation](Assignment_2/README.md)
 
 ---
 

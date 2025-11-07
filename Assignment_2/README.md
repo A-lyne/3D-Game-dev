@@ -35,9 +35,9 @@ A 3D Earth model viewer built with OpenGL, featuring photorealistic textures and
 ## Video Demonstration
 
 ### 🎥 Assignment Submission Video
-**File**: `video/earth_demo.mov`
+**File**: `video/Earth.mov`
 
-[🎬 Watch Demo Video](video/earth_demo.mov)
+[🎬 Watch Demo Video](video/Earth.mov)
 *Click to view the Earth 3D model demonstration*
 
 ### Video Content
@@ -97,7 +97,7 @@ README.md              # This file
 
 2. **Run the executable**:
    ```bash
-   cd build/Assignment_2:3D_kinetic_sculpture_animation
+   cd build/Assignment_2
    ./Assignment_2_3D_kinetic_sculpture_animation
    ```
 
