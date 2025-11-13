@@ -153,7 +153,7 @@ int main() {
     Common::Shader shader(vsPath.c_str(), fsPath.c_str());
     
     // Load player model
-    std::string modelPath = findResourcePath("resource/fox.OBJ");
+    std::string modelPath = findResourcePath("resource/Torque Twister/Torque Twister.obj");
     std::cout << "Loading model from: " << modelPath << std::endl;
     Model playerModel(modelPath.c_str());
     
@@ -237,8 +237,8 @@ int main() {
         // Render player
         model = glm::mat4(1.0f);
         model = glm::translate(model, playerPosition);
-        model = glm::rotate(model, glm::radians(playerRotation), glm::vec3(0.0f, 1.0f, 0.0f));
-        model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f)); // Scale down the model (very small)
+        model = glm::rotate(model, glm::radians(playerRotation + 270.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // Rotate 270 degrees to fix orientation
+        model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f)); // Scale the model (increased from 0.1 to 0.5)
         shader.setMat4("model", model);
         shader.setBool("useTexture", true);
         shader.setVec3("objectColor", glm::vec3(1.0f, 1.0f, 1.0f)); // White fallback

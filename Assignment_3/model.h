@@ -5,6 +5,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <vector>
 #include <string>
+#include <map>
 
 struct Vertex {
     glm::vec3 Position;
@@ -54,5 +55,9 @@ private:
     
     // Simple OBJ loader
     void loadOBJ(std::string path);
+    void loadMTL(std::string path);
+    
+    // Material storage
+    std::map<std::string, std::vector<Texture>> materials;
 };
 

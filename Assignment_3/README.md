@@ -5,7 +5,7 @@
 This is a simple 3D game implementation with the following features:
 
 ### 1. Model Loading
-- **Player Model**: The fox model (`fox.OBJ`) is loaded from the resource directory
+- **Player Model**: The Torque Twister model (`Torque Twister.obj`) with textures is loaded from the resource directory
 - **Scene**: A ground plane serves as the game scene
 - **Items**: Box objects (cubes) are placed around the scene as collectible items
 
