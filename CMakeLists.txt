@@ -27,13 +27,13 @@ if(WIN32)
         GIT_TAG 3.3.9
     )
 else()
-    FetchContent_Declare(
-        glfw
-        GIT_REPOSITORY https://github.com/glfw/glfw.git
-        GIT_TAG 3.3.9
-        PATCH_COMMAND
-            COMMAND sed -i "" "s/cmake_minimum_required(VERSION 3.1)/cmake_minimum_required(VERSION 3.5)/" CMakeLists.txt
-    )
+FetchContent_Declare(
+    glfw
+    GIT_REPOSITORY https://github.com/glfw/glfw.git
+    GIT_TAG 3.3.9
+    PATCH_COMMAND
+        COMMAND sed -i "" "s/cmake_minimum_required(VERSION 3.1)/cmake_minimum_required(VERSION 3.5)/" CMakeLists.txt
+)
 endif()
 FetchContent_MakeAvailable(glfw)
 set(glfw3_DIR ${glfw_BINARY_DIR}/src)
@@ -46,14 +46,14 @@ if(WIN32)
         GIT_TAG v0.1.36
     )
 else()
-    FetchContent_Declare(
-        glad
-        GIT_REPOSITORY https://github.com/Dav1dde/glad.git
-        GIT_TAG v0.1.36
-        PATCH_COMMAND
-            COMMAND sed -i "" "s/cmake_minimum_required(VERSION 3.0)/cmake_minimum_required(VERSION 3.5)/" CMakeLists.txt
-            COMMAND sed -i "" "s/find_package(PythonInterp REQUIRED)/find_package(Python REQUIRED)/" CMakeLists.txt
-    )
+FetchContent_Declare(
+    glad
+    GIT_REPOSITORY https://github.com/Dav1dde/glad.git
+    GIT_TAG v0.1.36
+    PATCH_COMMAND
+        COMMAND sed -i "" "s/cmake_minimum_required(VERSION 3.0)/cmake_minimum_required(VERSION 3.5)/" CMakeLists.txt
+        COMMAND sed -i "" "s/find_package(PythonInterp REQUIRED)/find_package(Python REQUIRED)/" CMakeLists.txt
+)
 endif()
 FetchContent_MakeAvailable(glad)
 
@@ -123,10 +123,10 @@ option(BUILD_ASSIGNMENT_4 "Build Assignment 4" ON)
 
 # Add Assignment 3: Loading 3D Model, Camera Following, Object Intersection
 if(BUILD_ASSIGNMENT_3)
-    add_subdirectory(Assignment_3)
+add_subdirectory(Assignment_3)
 endif()
 
 # Add Assignment 4: 3D Model Animation
 if(BUILD_ASSIGNMENT_4)
-    add_subdirectory(Assignment_4)
+add_subdirectory(Assignment_4)
 endif()
