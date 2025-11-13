@@ -62,14 +62,25 @@ if(APPLE)
     set(CMAKE_OSX_ARCHITECTURES "arm64")
 endif()
 
+# Generate root_directory.h from template for learnopengl filesystem
+# This is needed because filesystem.h uses #include "root_directory.h" (relative path)
+configure_file(
+    ${CMAKE_SOURCE_DIR}/configuration/root_directory.h.in
+    ${CMAKE_SOURCE_DIR}/includes/learnopengl/root_directory.h
+    @ONLY
+)
+
 # Add common library
 add_subdirectory(common)
 
 # Add Assignment 2: 3D Kinetic Sculpture Animation
-add_subdirectory("Assignment_2:3D_kinetic_sculpture_animation")
+add_subdirectory(Assignment_2)
 
 # Add Assignment 3: Loading 3D Model, Camera Following, Object Intersection
 add_subdirectory(Assignment_3)
+
+# Add Assignment 4: 3D Model Animation
+add_subdirectory(Assignment_4)
 
 # Add Final Project
 add_subdirectory(Final_Project)
