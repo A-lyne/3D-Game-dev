@@ -12,6 +12,15 @@ This is a simple 3D game implementation with the following features:
 ### Screenshot
 ![Game Screenshot](resources/Car.png)
 
+<p align="center">
+  <a href="resources/Car.mp4" download>
+    <img src="https://img.shields.io/badge/Download-Video-blue?style=for-the-badge&logo=playstation">
+  </a>
+  <a href="resources/Car.mp4" target="_blank">
+    <img src="https://img.shields.io/badge/Watch-Gameplay-red?style=for-the-badge&logo=youtube">
+  </a>
+</p>
+
 ### Demo Video
 [Watch Demo Video](resources/Car.mp4)
 

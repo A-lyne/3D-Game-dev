@@ -42,6 +42,15 @@ A simple 3D game with player control, camera following, and collision detection.
 **Demo:**
 ![Game Screenshot](Assignment_3/resources/Car.png)
 
+<p align="center">
+  <a href="Assignment_3/resources/Car.mp4" download>
+    <img src="https://img.shields.io/badge/Download-Video-blue?style=for-the-badge&logo=playstation">
+  </a>
+  <a href="Assignment_3/resources/Car.mp4" target="_blank">
+    <img src="https://img.shields.io/badge/Watch-Gameplay-red?style=for-the-badge&logo=youtube">
+  </a>
+</p>
+
 <video src="Assignment_3/resources/Car.mp4" controls width="100%">
   [Watch Demo Video](Assignment_3/resources/Car.mp4)
 </video>
@@ -68,6 +77,15 @@ Skeletal animation demo featuring a Mixamo character with multiple animation cli
 
 **Demo:**
 ![Rumba Animation](Assignment_4/result/RatAnimation.png)
+
+<p align="center">
+  <a href="Assignment_4/result/RatAnimation.mp4" download>
+    <img src="https://img.shields.io/badge/Download-Video-blue?style=for-the-badge&logo=playstation">
+  </a>
+  <a href="Assignment_4/result/RatAnimation.mp4" target="_blank">
+    <img src="https://img.shields.io/badge/Watch-Animation-red?style=for-the-badge&logo=youtube">
+  </a>
+</p>
 
 <video src="Assignment_4/result/RatAnimation.mp4" controls width="100%">
   [Watch Animation Demo](Assignment_4/result/RatAnimation.mp4)

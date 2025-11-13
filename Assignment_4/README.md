@@ -43,6 +43,15 @@ cd build/Assignment_4
 ### Screenshot / Video Preview
 ![Rumba Animation](result/RatAnimation.png)
 
+<p align="center">
+  <a href="result/RatAnimation.mp4" download>
+    <img src="https://img.shields.io/badge/Download-Video-blue?style=for-the-badge&logo=playstation">
+  </a>
+  <a href="result/RatAnimation.mp4" target="_blank">
+    <img src="https://img.shields.io/badge/Watch-Animation-red?style=for-the-badge&logo=youtube">
+  </a>
+</p>
+
 <video src="result/RatAnimation.mp4" controls width="100%">
   Rumba dance demo
 </video>
