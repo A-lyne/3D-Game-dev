@@ -20,24 +20,41 @@ endif()
 include(FetchContent)
 
 # Fetch GLFW
-FetchContent_Declare(
-    glfw
-    GIT_REPOSITORY https://github.com/glfw/glfw.git
-    GIT_TAG 3.3.9
-    PATCH_COMMAND
-        COMMAND sed -i "" "s/cmake_minimum_required(VERSION 3.1)/cmake_minimum_required(VERSION 3.5)/" CMakeLists.txt
-)
+if(WIN32)
+    FetchContent_Declare(
+        glfw
+        GIT_REPOSITORY https://github.com/glfw/glfw.git
+        GIT_TAG 3.3.9
+    )
+else()
+    FetchContent_Declare(
+        glfw
+        GIT_REPOSITORY https://github.com/glfw/glfw.git
+        GIT_TAG 3.3.9
+        PATCH_COMMAND
+            COMMAND sed -i "" "s/cmake_minimum_required(VERSION 3.1)/cmake_minimum_required(VERSION 3.5)/" CMakeLists.txt
+    )
+endif()
 FetchContent_MakeAvailable(glfw)
+set(glfw3_DIR ${glfw_BINARY_DIR}/src)
 
 # Fetch GLAD
-FetchContent_Declare(
-    glad
-    GIT_REPOSITORY https://github.com/Dav1dde/glad.git
-    GIT_TAG v0.1.36
-    PATCH_COMMAND
-        COMMAND sed -i "" "s/cmake_minimum_required(VERSION 3.0)/cmake_minimum_required(VERSION 3.5)/" CMakeLists.txt
-        COMMAND sed -i "" "s/find_package(PythonInterp REQUIRED)/find_package(Python REQUIRED)/" CMakeLists.txt
-)
+if(WIN32)
+    FetchContent_Declare(
+        glad
+        GIT_REPOSITORY https://github.com/Dav1dde/glad.git
+        GIT_TAG v0.1.36
+    )
+else()
+    FetchContent_Declare(
+        glad
+        GIT_REPOSITORY https://github.com/Dav1dde/glad.git
+        GIT_TAG v0.1.36
+        PATCH_COMMAND
+            COMMAND sed -i "" "s/cmake_minimum_required(VERSION 3.0)/cmake_minimum_required(VERSION 3.5)/" CMakeLists.txt
+            COMMAND sed -i "" "s/find_package(PythonInterp REQUIRED)/find_package(Python REQUIRED)/" CMakeLists.txt
+    )
+endif()
 FetchContent_MakeAvailable(glad)
 
 # Fetch GLM
@@ -47,6 +64,7 @@ FetchContent_Declare(
     GIT_TAG 1.0.1
 )
 FetchContent_MakeAvailable(glm)
+set(glm_DIR ${glm_BINARY_DIR})
 
 # Fetch stb
 FetchContent_Declare(
@@ -55,6 +73,32 @@ FetchContent_Declare(
     GIT_TAG master
 )
 FetchContent_MakeAvailable(stb)
+
+# Fetch Assimp (only if Assignment 4 is enabled)
+# Note: Assimp build can take a while, be patient
+if(BUILD_ASSIGNMENT_4)
+    message(STATUS "Fetching Assimp library (this may take a while)...")
+    FetchContent_Declare(
+        assimp
+        GIT_REPOSITORY https://github.com/assimp/assimp.git
+        GIT_TAG v5.4.2
+    )
+    # Configure Assimp build options to minimize build time
+    set(ASSIMP_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+    set(ASSIMP_BUILD_ASSIMP_TOOLS OFF CACHE BOOL "" FORCE)
+    set(ASSIMP_BUILD_SAMPLES OFF CACHE BOOL "" FORCE)
+    set(ASSIMP_INSTALL OFF CACHE BOOL "" FORCE)
+    set(ASSIMP_INSTALL_PDB OFF CACHE BOOL "" FORCE)
+    set(ASSIMP_BUILD_ALL_IMPORTERS_BY_DEFAULT OFF CACHE BOOL "" FORCE)
+    set(ASSIMP_BUILD_ALL_EXPORTERS_BY_DEFAULT OFF CACHE BOOL "" FORCE)
+    set(ASSIMP_BUILD_ZLIB ON CACHE BOOL "" FORCE)
+    # Only build what we need
+    set(ASSIMP_BUILD_OBJ_IMPORTER ON CACHE BOOL "" FORCE)
+    set(ASSIMP_BUILD_COLLADA_IMPORTER ON CACHE BOOL "" FORCE)
+    FetchContent_MakeAvailable(assimp)
+    set(assimp_DIR ${assimp_BINARY_DIR})
+    message(STATUS "Assimp library ready")
+endif()
 
 # macOS specific settings
 if(APPLE)
@@ -73,14 +117,16 @@ configure_file(
 # Add common library
 add_subdirectory(common)
 
-# Add Assignment 2: 3D Kinetic Sculpture Animation
-add_subdirectory(Assignment_2)
+# Build options
+option(BUILD_ASSIGNMENT_3 "Build Assignment 3" ON)
+option(BUILD_ASSIGNMENT_4 "Build Assignment 4" ON)
 
 # Add Assignment 3: Loading 3D Model, Camera Following, Object Intersection
-add_subdirectory(Assignment_3)
+if(BUILD_ASSIGNMENT_3)
+    add_subdirectory(Assignment_3)
+endif()
 
 # Add Assignment 4: 3D Model Animation
-add_subdirectory(Assignment_4)
-
-# Add Final Project
-add_subdirectory(Final_Project)
+if(BUILD_ASSIGNMENT_4)
+    add_subdirectory(Assignment_4)
+endif()

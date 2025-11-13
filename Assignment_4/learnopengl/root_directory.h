@@ -1,1 +1,1 @@
-const char * logl_root = "/Users/jarukit/Documents/GitHub/3D-GAME-DEVELOPMENT";
+const char * logl_root = "C:/Users/hp/OneDrive/Documents/GitHub/3D-Game-dev";

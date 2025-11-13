@@ -29,6 +29,8 @@
 
 
 #include <iostream>
+#include <fstream>
+#include <string>
 
 
 
@@ -190,8 +192,17 @@ int main()
 
 	// -------------------------
 
-	Shader ourShader(FileSystem::getPath("Assignment_4/anim_model.vs").c_str(), 
-	                 FileSystem::getPath("Assignment_4/anim_model.fs").c_str());
+	// Shader files are copied to both build/Assignment_4/ and Debug/
+	// Try current directory first, then parent directory
+	std::string vsPath = "anim_model.vs";
+	std::string fsPath = "anim_model.fs";
+	std::ifstream testFile(vsPath);
+	if (!testFile.good()) {
+		vsPath = "../anim_model.vs";
+		fsPath = "../anim_model.fs";
+	}
+	testFile.close();
+	Shader ourShader(vsPath.c_str(), fsPath.c_str());
 
 
 
@@ -203,19 +214,21 @@ int main()
 
 	// idle 3.3, walk 2.06, run 0.83, punch 1.03, kick 1.6
 
-	Model ourModel(FileSystem::getPath("Assignment_4/resources/objects/mixamo/Ch14_nonPBR.dae"));
+	// Resources are in build/Assignment_4/resources/, but executable runs from Debug/
+	// Use relative paths going up one level
+	Model ourModel("../resources/objects/mixamo/Ch34_nonPBR.dae");
 
-	Animation idleAnimation(FileSystem::getPath("Assignment_4/resources/objects/mixamo/Idle.dae"), &ourModel);
+	Animation idleAnimation("../resources/objects/mixamo/Idle.dae", &ourModel);
 
-	// Animation walkAnimation(FileSystem::getPath("resources/objects/mixamo/walk.dae"), &ourModel);
+	// Animation walkAnimation("../resources/objects/mixamo/walk.dae", &ourModel);
 
-	// Animation runAnimation(FileSystem::getPath("resources/objects/mixamo/run.dae"), &ourModel);
+	// Animation runAnimation("../resources/objects/mixamo/run.dae", &ourModel);
 
-	// Animation punchAnimation(FileSystem::getPath("resources/objects/mixamo/punch.dae"), &ourModel);
+	// Animation punchAnimation("../resources/objects/mixamo/punch.dae", &ourModel);
 
-	// Animation kickAnimation(FileSystem::getPath("resources/objects/mixamo/kick.dae"), &ourModel);
+	// Animation kickAnimation("../resources/objects/mixamo/kick.dae", &ourModel);
 
-	Animation rumbaAnimation(FileSystem::getPath("Assignment_4/resources/objects/mixamo/Rumba Dancing.dae"), &ourModel);
+	Animation snakeHipHopAnimation("../resources/objects/mixamo/Snake Hip Hop Dance.dae", &ourModel);
 
 	Animator animator(&idleAnimation);
 
@@ -265,7 +278,7 @@ int main()
 
 		if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
 
-			animator.PlayAnimation(&rumbaAnimation, NULL, 0.0f, 0.0f, 0.0f);
+			animator.PlayAnimation(&snakeHipHopAnimation, NULL, 0.0f, 0.0f, 0.0f);
 
 		// if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS)
 

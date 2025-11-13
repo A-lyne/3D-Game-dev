@@ -5,7 +5,7 @@ This assignment extends the LearnOpenGL animation tutorial to showcase a fully r
 
 - Load and render skinned meshes (`Model`) with Assimp.
 - Drive bone transforms using `Animation` and `Animator`.
-- Switch between multiple animation clips at runtime (Idle and Rumba dance).
+- Switch between multiple animation clips at runtime (Idle and Snake Hip Hop Dance).
 - Navigate the scene with a free-look camera (WASD + mouse).
 
 ### Controls
@@ -14,7 +14,7 @@ This assignment extends the LearnOpenGL animation tutorial to showcase a fully r
 - Scroll wheel – Zoom (change FOV).
 - `Esc` – Quit.
 - `1` – Play Idle animation.
-- `2` – Play Rumba Dancing animation.
+- `2` – Play Snake Hip Hop Dance animation.
 
 ### Build & Run
 From the repository root:
@@ -28,9 +28,9 @@ cd build/Assignment_4
 > **Tip:** If you configure manually, ensure CMake is run with `-DFETCHCONTENT_FULLY_DISCONNECTED=ON` when building in an offline sandbox.
 
 ### Assets
-- Character mesh: `resources/objects/mixamo/Ch14_nonPBR.dae`
+- Character mesh: `resources/objects/mixamo/Ch34_nonPBR.dae`
 - Idle animation: `resources/objects/mixamo/Idle.dae`
-- Rumba animation: `resources/objects/mixamo/Rumba Dancing.dae`
+- Snake Hip Hop Dance animation: `resources/objects/mixamo/Snake Hip Hop Dance.dae`
 - Result media: `result/RatAnimation.png`, `result/RatAnimation.mp4`
 
 ### Implementation Notes
