@@ -42,13 +42,26 @@ target_link_libraries(Assignment_1
     glm::glm
 )
 
-# Copy shaders to build directory
+# Copy shaders to build directory (using add_custom_command to ensure they're copied during build)
+add_custom_command(TARGET Assignment_1 POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/Assignment_1"
+    COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_SOURCE_DIR}/transform.vs" "${CMAKE_BINARY_DIR}/Assignment_1/transform.vs"
+    COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_SOURCE_DIR}/transform.fs" "${CMAKE_BINARY_DIR}/Assignment_1/transform.fs"
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/Assignment_1/Debug"
+    COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_SOURCE_DIR}/transform.vs" "${CMAKE_BINARY_DIR}/Assignment_1/Debug/transform.vs"
+    COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_SOURCE_DIR}/transform.fs" "${CMAKE_BINARY_DIR}/Assignment_1/Debug/transform.fs"
+)
+
+# Copy resources to build directory
+add_custom_command(TARGET Assignment_1 POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/resources" "${CMAKE_BINARY_DIR}/Assignment_1/resources"
+)
+
+# Also copy during configure (for immediate availability)
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/transform.vs DESTINATION ${CMAKE_BINARY_DIR}/Assignment_1/)
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/transform.fs DESTINATION ${CMAKE_BINARY_DIR}/Assignment_1/)
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/transform.vs DESTINATION ${CMAKE_BINARY_DIR}/Assignment_1/Debug/)
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/transform.fs DESTINATION ${CMAKE_BINARY_DIR}/Assignment_1/Debug/)
-
-# Copy resources to build directory
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources/ DESTINATION ${CMAKE_BINARY_DIR}/Assignment_1/resources/)
 
 # Set working directory for IDE (so resources can be found)

@@ -66,9 +66,17 @@ If you're running from Xcode or another IDE, you may need to set the working dir
 [![View Screenshot](https://img.shields.io/badge/View-Screenshot-blue?style=for-the-badge)](resource/result/Cat.png)
 
 ### Gameplay Clip
-[![Watch Gameplay Clip](https://youtu.be/8bsEtpANNcg)](resource/result/3dcar.mp4)
+<p align="center">
+  <a href="https://youtu.be/8bsEtpANNcg" target="_blank">
+    <img src="https://img.shields.io/badge/Watch-Gameplay%20Clip-red?style=for-the-badge&logo=youtube">
+  </a>
+</p>
 
-> GitHub does not autoplay local videos, so use the button above to download or play the clip.
+<p align="center">
+  <a href="https://youtu.be/8bsEtpANNcg" target="_blank">
+    <img src="https://img.youtube.com/vi/8bsEtpANNcg/maxresdefault.jpg" alt="3D Game Gameplay Clip" width="100%">
+  </a>
+</p>
 
 ## Assets & Credits
 - 3d car  model: ["3D car" by Tech developers](https://sketchfab.com/3d-models/3d-car-ce7f30f1f8154e8db0b4f21eb75b9728). Shared for free use via Sketchfab (see original page for details).

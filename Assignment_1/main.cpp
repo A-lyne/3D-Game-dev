@@ -42,6 +42,11 @@ int main()
     }
     glfwMakeContextCurrent(window);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+    
+    std::cout << "Window created successfully: " << SCR_WIDTH << "x" << SCR_HEIGHT << std::endl;
+    
+    // Make sure window is visible
+    glfwShowWindow(window);
 
     // glad: load all OpenGL function pointers
     // ---------------------------------------
@@ -53,7 +58,13 @@ int main()
 
     // build and compile our shader program
     // ------------------------------------
+    std::cout << "Loading shaders: transform.vs and transform.fs" << std::endl;
     Shader ourShader("transform.vs", "transform.fs");
+    if (ourShader.ID == 0) {
+        std::cout << "ERROR: Shader compilation failed!" << std::endl;
+        return -1;
+    }
+    std::cout << "Shader compiled successfully. ID: " << ourShader.ID << std::endl;
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
@@ -109,6 +120,7 @@ int main()
     unsigned char *data = stbi_load("resources/textures/mario.png", &width, &height, &nrChannels, 0);
     if (!data)
     {
+        std::cout << "Failed to load mario.png, trying container.jpg..." << std::endl;
         // Fallback to container.jpg if mario.png doesn't exist
         data = stbi_load("resources/textures/container.jpg", &width, &height, &nrChannels, 0);
     }
@@ -121,14 +133,18 @@ int main()
         else if (nrChannels == 1)
             format = GL_RED;
             
+        std::cout << "Texture loaded successfully: " << width << "x" << height << ", channels: " << nrChannels << std::endl;
         glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
     }
     else
     {
-        std::cout << "Failed to load texture. Using default color." << std::endl;
+        std::cout << "Failed to load texture. Creating default texture." << std::endl;
+        // Create a default white texture
+        unsigned char defaultTexture[3] = {255, 255, 255};
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 1, 1, 0, GL_RGB, GL_UNSIGNED_BYTE, defaultTexture);
     }
-    stbi_image_free(data);
+    if (data) stbi_image_free(data);
     
     // texture 2 - using a simple pattern or second texture
     // ---------
@@ -160,6 +176,10 @@ int main()
     ourShader.setInt("texture1", 0);
     ourShader.setInt("texture2", 1);
 
+    std::cout << "Starting render loop..." << std::endl;
+    std::cout << "Press ESC to exit" << std::endl;
+    std::cout << "Window should be visible now!" << std::endl;
+
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
@@ -172,6 +192,12 @@ int main()
         // ------
         glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+        
+        // Check for OpenGL errors
+        GLenum err = glGetError();
+        if (err != GL_NO_ERROR) {
+            std::cout << "OpenGL Error: " << err << std::endl;
+        }
 
         // bind textures on corresponding texture units
         glActiveTexture(GL_TEXTURE0);
