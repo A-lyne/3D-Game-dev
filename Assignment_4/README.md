@@ -31,7 +31,7 @@ cd build/Assignment_4
 - Character mesh: `resources/objects/mixamo/Ch34_nonPBR.dae`
 - Idle animation: `resources/objects/mixamo/Idle.dae`
 - Snake Hip Hop Dance animation: `resources/objects/mixamo/Snake Hip Hop Dance.dae`
-- Result media: `result/RatAnimation.png`, `result/RatAnimation.mp4`
+- Result media: `result/dance_animation.png`, `result/dance_animation.mp4`
 
 ### Implementation Notes
 - `main.cpp` wires together GLFW, GLAD, the common utilities, and the LearnOpenGL animation subsystem.
@@ -41,19 +41,21 @@ cd build/Assignment_4
 - Resources are copied to the build directory via `CMakeLists.txt`.
 
 ### Screenshot / Video Preview
-![Rumba Animation](result/RatAnimation.png)
+![Dance Animation](result/dance_animation.png)
 
 <p align="center">
-  <a href="result/RatAnimation.mp4" download>
+  <a href="result/dance_animation.mp4" download>
     <img src="https://img.shields.io/badge/Download-Video-blue?style=for-the-badge&logo=playstation">
   </a>
-  <a href="result/RatAnimation.mp4" target="_blank">
+  <a href="https://youtu.be/1XtRVoOIFJw" target="_blank">
     <img src="https://img.shields.io/badge/Watch-Animation-red?style=for-the-badge&logo=youtube">
   </a>
 </p>
 
-<video src="result/RatAnimation.mp4" controls width="100%">
-  Rumba dance demo
-</video>
+<p align="center">
+  <a href="https://youtu.be/1XtRVoOIFJw" target="_blank">
+    <img src="https://img.youtube.com/vi/1XtRVoOIFJw/maxresdefault.jpg" alt="Snake Hip Hop Dance animation demo" width="100%">
+  </a>
+</p>
 
 Enjoy exploring the animated workflow!

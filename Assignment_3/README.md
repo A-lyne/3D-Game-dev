@@ -54,28 +54,28 @@ cd build/Assignment\ 3
 ./Assignment_3
 ```
 
-**Important**: Make sure you run the executable from the `build/Assignment 3/` directory, or the resource files may not be found. The CMake build process should automatically copy resources to the build directory.
+**Important**: Make sure you run the executable from the `build/Assignment_3/` directory, or the resource files may not be found. The CMake build process should automatically copy resources to the build directory.
 
 If you're running from Xcode or another IDE, you may need to set the working directory to `$(PROJECT_DIR)/build/Assignment 3/` in your run configuration.
 
 ## Result Preview
 
 ### Screenshot
-![Fox character in game](resource/result/Cat.png)
+![3D car in game](resource/result/3dcar.png)
 
 [![View Screenshot](https://img.shields.io/badge/View-Screenshot-blue?style=for-the-badge)](resource/result/Cat.png)
 
 ### Gameplay Clip
-[![Watch Gameplay Clip](https://img.shields.io/badge/Watch-Gameplay%20Clip-red?style=for-the-badge&logo=youtube)](resource/result/Cat-2.mp4)
+[![Watch Gameplay Clip](https://youtu.be/8bsEtpANNcg)](resource/result/3dcar.mp4)
 
 > GitHub does not autoplay local videos, so use the button above to download or play the clip.
 
 ## Assets & Credits
-- Fox character model: ["PBR Low-poly Fox Character" by Ida Faber](https://sketchfab.com/3d-models/pbr-low-poly-fox-character-88ed6191446749b9a9e24b995bcb5e1d). Shared for free use via Sketchfab (see original page for details).
+- 3d car  model: ["3D car" by Tech developers](https://sketchfab.com/3d-models/3d-car-ce7f30f1f8154e8db0b4f21eb75b9728). Shared for free use via Sketchfab (see original page for details).
 
 ## Game Mechanics
 
-- The game starts with the player (fox) at the origin (0, 0, 0)
+- The game starts with the player (car) at the origin (0, 0, 0)
 - There are 6 collectible item boxes scattered around the scene
 - Collect all items by moving your character into them
 - The console will display how many items remain when you collect one

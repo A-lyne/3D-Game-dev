@@ -118,8 +118,14 @@ configure_file(
 add_subdirectory(common)
 
 # Build options
+option(BUILD_ASSIGNMENT_1 "Build Assignment 1" ON)
 option(BUILD_ASSIGNMENT_3 "Build Assignment 3" ON)
 option(BUILD_ASSIGNMENT_4 "Build Assignment 4" ON)
+
+# Add Assignment 1: 2D Animation
+if(BUILD_ASSIGNMENT_1)
+add_subdirectory(Assignment_1)
+endif()
 
 # Add Assignment 3: Loading 3D Model, Camera Following, Object Intersection
 if(BUILD_ASSIGNMENT_3)
