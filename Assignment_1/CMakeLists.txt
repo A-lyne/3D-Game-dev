@@ -10,6 +10,7 @@ find_package(OpenGL REQUIRED)
 # Add executable
 add_executable(Assignment_1 
     main.cpp
+    stb_image_impl.cpp
 )
 
 # Include directories

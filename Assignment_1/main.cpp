@@ -10,6 +10,12 @@
 
 #include <iostream>
 #include <cmath>
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#include <limits.h>
+#endif
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
@@ -47,6 +53,9 @@ int main()
     
     // Make sure window is visible
     glfwShowWindow(window);
+    
+    // Set vsync
+    glfwSwapInterval(1);
 
     // glad: load all OpenGL function pointers
     // ---------------------------------------
@@ -55,6 +64,20 @@ int main()
         std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
     }
+    
+    std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
+    
+    // Print current working directory for debugging
+    char cwd[1024];
+    #ifdef _WIN32
+        if (GetCurrentDirectoryA(1024, cwd) != 0) {
+            std::cout << "Current working directory: " << cwd << std::endl;
+        }
+    #else
+        if (getcwd(cwd, sizeof(cwd)) != NULL) {
+            std::cout << "Current working directory: " << cwd << std::endl;
+        }
+    #endif
 
     // build and compile our shader program
     // ------------------------------------
@@ -179,9 +202,19 @@ int main()
     std::cout << "Starting render loop..." << std::endl;
     std::cout << "Press ESC to exit" << std::endl;
     std::cout << "Window should be visible now!" << std::endl;
+    
+    // Check if window is visible
+    int visible = glfwGetWindowAttrib(window, GLFW_VISIBLE);
+    std::cout << "Window visible: " << (visible ? "YES" : "NO") << std::endl;
+    
+    // Get window position and size
+    int winWidth, winHeight;
+    glfwGetWindowSize(window, &winWidth, &winHeight);
+    std::cout << "Window size: " << winWidth << "x" << winHeight << std::endl;
 
     // render loop
     // -----------
+    int frameCount = 0;
     while (!glfwWindowShouldClose(window))
     {
         // input
@@ -193,11 +226,14 @@ int main()
         glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        // Check for OpenGL errors
-        GLenum err = glGetError();
-        if (err != GL_NO_ERROR) {
-            std::cout << "OpenGL Error: " << err << std::endl;
+        // Check for OpenGL errors (only first few frames to avoid spam)
+        if (frameCount < 5) {
+            GLenum err = glGetError();
+            if (err != GL_NO_ERROR) {
+                std::cout << "OpenGL Error (frame " << frameCount << "): " << err << std::endl;
+            }
         }
+        frameCount++;
 
         // bind textures on corresponding texture units
         glActiveTexture(GL_TEXTURE0);
