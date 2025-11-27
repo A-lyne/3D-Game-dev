@@ -3,11 +3,19 @@
 A collection of 3D graphics projects and assignments built with OpenGL and C++.
 
 ## Quick Links
-
+-
 - 📖 [Assignment 3: Simple 3D Game](Assignment_3/README.md)
 - 📖 [Assignment 4: Animated Mixamo Character](Assignment_4/README.md)
 
 ## Projects
+### 📁 Assignment 2: 3D-Kinetic
+
+
+Credit to Jinsters for 3d Cartoon crocodile (Croco-Roco) model [https://jinsters.booth.pm/items/1720664](https://sketchfab.com/3d-models/cartoon-crocodile-croco-roco-235cd273783e496c932820b09023211a)
+
+Example video of the work  https://youtu.be/dAK_Rw-V7O8
+
+Click left mouse to create new Croco-Roco with random direction rotation with the same speed rotation
 
 ### 📁 Assignment 3: Simple 3D Game
 A simple 3D game with player control, camera following, and collision detection.
